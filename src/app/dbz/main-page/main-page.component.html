@@ -7,7 +7,9 @@
     <app-personajes [listaPersonajes]="personajes"></app-personajes>
   </div>
 
-  <div class="col">
-    <app-agregar [personajeNuevo]="nuevo" [listaPersonajes]="personajes"></app-agregar>
+  <div class="col"> <!-- Cuando se emite el evento, se recoje y va al .TS main -->
+    <app-agregar [personajeNuevo]="nuevo"
+                 (onNuevoPersonaje)="agregarNuevoPersonaje($event)"
+    ></app-agregar>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Personaje} from "../interfaces/dbz.interface";
 
 @Component({
@@ -7,11 +7,13 @@ import {Personaje} from "../interfaces/dbz.interface";
 })
 export class AgregarComponent {
 
-  @Input() listaPersonajes: Personaje[] = [];
   @Input() personajeNuevo: Personaje = {
     nombre: '',
     poder: 0
   };
+
+  // El output es un decorador para exportar eventos de hijo a padre (contrario a @Input)
+  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter<Personaje>();
 
   agregar() {
     //$event.preventDefault(); // Evita el refresh del formulario || Con ngSubmit no es necesario
@@ -22,17 +24,13 @@ export class AgregarComponent {
     }
 
     console.log(this.personajeNuevo);
-
-    // Se añade el personaje nuevo a la lista
-    this.listaPersonajes.push(this.personajeNuevo);
+    this.onNuevoPersonaje.emit(this.personajeNuevo); // Enviamos el personaje nuevo al padre
 
     // Se setea a blanco
     this.personajeNuevo = {
       nombre: '',
       poder: 0
     };
-
-    console.log(this.listaPersonajes);
   }
 
 }
