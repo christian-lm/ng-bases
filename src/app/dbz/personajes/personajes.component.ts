@@ -1,18 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Personaje} from "../interfaces/dbz.interface";
 
 @Component({
   selector: 'app-personajes',
   templateUrl: './personajes.component.html'
 })
 export class PersonajesComponent {
-  personajes: any[] = [
-    {
-      nombre: 'Goku',
-      poder: 15000
-    },
-    {
-      nombre: 'Vegetta',
-      poder: 8500
-    },
-  ];
+
+  // El @Input es un decorador que dice que vamos a coger la propiedad del padre
+  @Input() listaPersonajes: Personaje[] = [];
 }
