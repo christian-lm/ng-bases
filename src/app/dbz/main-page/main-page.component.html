@@ -4,12 +4,11 @@
 <div class="row">
   <div class="col">
     <!-- Se asocia el personajes del @Input con el del main-page -->
-    <app-personajes [listaPersonajes]="personajes"></app-personajes>
+    <app-personajes></app-personajes>
   </div>
 
   <div class="col"> <!-- Cuando se emite el evento, se recoje y va al .TS main -->
     <app-agregar [personajeNuevo]="nuevo"
-                 (onNuevoPersonaje)="agregarNuevoPersonaje($event)"
     ></app-agregar>
   </div>
 </div>
