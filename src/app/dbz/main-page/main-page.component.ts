@@ -1,16 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  templateUrl: './main-page.component.html'
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
-  constructor() {
+  agregar() {
+    //$event.preventDefault(); // Evita el refresh del formulario || Con ngSubmit no es necesario
+
+    console.log('Esta es una prueba');
   }
-
-  ngOnInit(): void {
-  }
-
 }
