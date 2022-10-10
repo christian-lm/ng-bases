@@ -11,18 +11,36 @@ interface Personaje {
 })
 export class MainPageComponent {
 
+  personajes: Personaje[] = [
+    {
+      nombre: 'Goku',
+      poder: 15000
+    },
+    {
+      nombre: 'Vegetta',
+      poder: 8500
+    },
+  ];
+
   nuevo: Personaje = {
-    nombre: 'Trunks',
-    poder: 14000
+    nombre: '',
+    poder: 0
   }
 
   agregar() {
     //$event.preventDefault(); // Evita el refresh del formulario || Con ngSubmit no es necesario
 
-    console.log(this.nuevo);
-  }
+    if (this.nuevo.nombre.trim().length === 0) {
+      return;
+    }
 
-  cambiarNombre(event: any) {
-    console.log(event.target.value);
+    console.log(this.nuevo);
+
+    this.personajes.push(this.nuevo);
+
+    this.nuevo = {
+      nombre: '',
+      poder: 0
+    }
   }
 }
