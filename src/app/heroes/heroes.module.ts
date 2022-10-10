@@ -12,7 +12,7 @@ import {CommonModule} from "@angular/common";
     ListadoComponent
   ],
   imports: [ // Importacion de modulos
-    CommonModule
+    CommonModule // Este commonModule importa las directivas como el ngIF o el ngFor
   ]
 })
 export class HeroesModule {
